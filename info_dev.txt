@@ -8,3 +8,7 @@
 2 - criar gráficos
     A - pizza com os custos, despesas e margem, sendo o total o valor de faturamento
     B - ver outros tipos de gráfico, de barras internamente dentro dos custos e dentro das despesas
+
+=======================================================
+3 - tratar excessões e erros
+    ao entrar diretamente na página markup, pedir para retornar ao faturamento para preencher em vez de aparecer erro
