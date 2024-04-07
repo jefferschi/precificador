@@ -1,9 +1,9 @@
 import streamlit as st
 
 import pandas as pd
-import locale
+#import locale
 
-locale.setlocale(locale.LC_ALL, 'pt_BR')
+#locale.setlocale(locale.LC_ALL, 'pt_BR')
 
 @st.cache_data
 def processar_dados(custos_variaveis):

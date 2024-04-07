@@ -3,9 +3,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-import locale
+#import locale
 
-locale.setlocale(locale.LC_ALL, 'pt_BR')
+#locale.setlocale(locale.LC_ALL, 'pt_BR')
 
 with open('estilo.css') as estilo:
     st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
