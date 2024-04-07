@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-import locale
+#import locale
 
 # colocar um campo para %margem líq e retornar o cálculo nominal. colocar um st.form
 
-locale.setlocale(locale.LC_ALL, 'pt_BR')
+#locale.setlocale(locale.LC_ALL, 'pt_BR')
 
 @st.cache_data
 def processar_dados(dados_faturamento):
