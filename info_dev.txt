@@ -1,0 +1,10 @@
+1 - erro:
+    ao alterar valoeres em um input de custos variáveis, precisei alterar e salvar 2x para alterar o resultado
+    da sessão, além de o valor anterior ter retornado pela 1ªx que tentei.
+
+    verificar se está ocorrendo nos demais formulários.
+
+===========================================================
+2 - criar gráficos
+    A - pizza com os custos, despesas e margem, sendo o total o valor de faturamento
+    B - ver outros tipos de gráfico, de barras internamente dentro dos custos e dentro das despesas

@@ -1,0 +1,16 @@
+#markup{
+    color: black;
+    border-color: black;
+}
+
+.block-container{
+    margin-top: 5px;
+    border-color: black;
+    
+}
+
+.element-container{
+    text-align: center;    
+    border-color: black;
+
+}
