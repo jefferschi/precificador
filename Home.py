@@ -6,9 +6,6 @@ st.set_page_config(
     page_icon='',
 )
 
-
-
-
 st.title('Precificador Varejista')
 
 st.markdown(

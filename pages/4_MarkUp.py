@@ -26,6 +26,7 @@ def painel_markup():
     despesas= st.session_state.despesas_fixas['total_despesas_fixas']
     custos= st.session_state.custos_variaveis['total_custos_variaveis']
 
+    # retirar esse cálculo e usar o cálculo a partir do markup - ver anotações de ponto de equilibrio
     custos_produtos = faturamento - mrg_liq - despesas - custos
 
     col1, col2, col3, col4 = st.columns([1,1,1,0.5])

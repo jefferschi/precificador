@@ -60,6 +60,7 @@ def formulario_faturamento():
 
     st.sidebar.write('faturamento: %.2f'%st.session_state.faturamento)
     st.sidebar.write('faturamento: %.2f'%st.session_state.dados_faturamento['faturamento'])
+    
 
 
 

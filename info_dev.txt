@@ -1,3 +1,7 @@
+- verificar por que a biblioteca locale não funciona no servidor streamlit
+    tentar instalar "por fora" ou usar alternativa
+    pesquisar sobre esse problema
+
 =======================================================
 - ponto de equilibrio
     criar calculo para PE financeiro e PE econômico
