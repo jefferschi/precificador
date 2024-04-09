@@ -10,9 +10,12 @@ import plotly.express as px
 with open('estilo.css') as estilo:
     st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
 
-def calcula_markup(perc_mrg_liq, perc_despesas, perc_custos):
+def calcula_markup(perc_mrg_liq, perc_despesas, perc_custos,faturamento):
     markup = 1.0/(1.0-perc_mrg_liq - perc_despesas - perc_custos)
+    custos_produtos = faturamento / markup
     st.session_state.markup = markup
+    st.session_state.custos_produtos = custos_produtos
+
     
 def painel_markup():
     st.subheader("Markup")
@@ -26,9 +29,13 @@ def painel_markup():
     despesas= st.session_state.despesas_fixas['total_despesas_fixas']
     custos= st.session_state.custos_variaveis['total_custos_variaveis']
 
-    # retirar esse cálculo e usar o cálculo a partir do markup - ver anotações de ponto de equilibrio
-    custos_produtos = faturamento - mrg_liq - despesas - custos
+    custos_produtos = st.session_state.get('custos_produtos',0.0)
 
+
+    
+    # retirar esse cálculo e usar o cálculo a partir do markup - ver anotações de ponto de equilibrio
+    #custos_produtos = faturamento - mrg_liq - despesas - custos
+    
     col1, col2, col3, col4 = st.columns([1,1,1,0.5])
     with col1:
         st.write('Faturamento e Margem Líquida')
@@ -48,11 +55,9 @@ def painel_markup():
         st.write('Total dos custos variávies: ', custos)
         st.write('% custos variáveis: ', perc_custos)
 
-
-
     with col4:
         st.write('Markup')
-        calcula_markup(perc_mrg_liq, perc_despesas, perc_custos)
+        calcula_markup(perc_mrg_liq, perc_despesas, perc_custos, faturamento)
         st.write(st.session_state.markup)
     
     graficos(mrg_liq, despesas, custos,custos_produtos)
