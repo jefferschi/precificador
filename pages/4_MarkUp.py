@@ -31,10 +31,6 @@ def painel_markup():
 
     custos_produtos = st.session_state.get('custos_produtos',0.0)
 
-
-    
-    # retirar esse cálculo e usar o cálculo a partir do markup - ver anotações de ponto de equilibrio
-    #custos_produtos = faturamento - mrg_liq - despesas - custos
     
     col1, col2, col3, col4 = st.columns([1,1,1,0.5])
     with col1:
@@ -60,12 +56,12 @@ def painel_markup():
         calcula_markup(perc_mrg_liq, perc_despesas, perc_custos, faturamento)
         st.write(st.session_state.markup)
     
-    graficos(mrg_liq, despesas, custos,custos_produtos)
+    grafico(mrg_liq, despesas, custos,custos_produtos)
 
 st.sidebar.write(f'registros da sessão :',st.session_state)
 
 
-def graficos(mrg_liq, despesas, custos, custos_produtos):
+def grafico(mrg_liq, despesas, custos, custos_produtos):
 
     rotulos = ['Margem Líquida','Despesas Fixas', 'Custos Variáveis','Custos Produtos']
 
