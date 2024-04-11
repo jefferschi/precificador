@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+
+
 #import locale
 
 # colocar um campo para %margem líq e retornar o cálculo nominal. colocar um st.form
@@ -60,8 +62,8 @@ def formulario_faturamento():
 
     st.sidebar.write('faturamento: %.2f'%st.session_state.faturamento)
     st.sidebar.write('faturamento: %.2f'%st.session_state.dados_faturamento['faturamento'])
-    
 
+    st.page_link('Home.py', label='Home', icon='🏠')
 
 
 formulario_faturamento()
