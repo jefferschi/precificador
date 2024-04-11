@@ -36,7 +36,7 @@ def formulario_faturamento():
         })
 
     with st.form(key='formulario_faturamento'):
-        
+        fat ="{:,.2f}".format(dados_faturamento['faturamento'])
         # entrada do valor de faturamento
         dados_faturamento['faturamento'] = st.number_input("Faturamento", step=1000.0, value=dados_faturamento['faturamento'], min_value=0.0, key='faturamento')
         dados_faturamento['%_margem'] = st.number_input("% Margem Líq. desejada", value=dados_faturamento['%_margem'], min_value=0.0, key='%_margem')

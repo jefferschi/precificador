@@ -23,6 +23,8 @@ def ponto_equilibrio_fin():
     despesas= st.session_state.despesas_fixas['total_despesas_fixas']
     custos= st.session_state.custos_variaveis['total_custos_variaveis']
     custos_produtos = st.session_state.custos_produtos
+  
+
     
     # testar aqui fórmulas para se chegar ao valor mais assertivo de P.E.
     ponto_equilibrio_fin = custos + custos_produtos + despesas
@@ -59,6 +61,7 @@ def painel_ponto_equilibrio():
     st.write('-'*1000)
     st.write('Resumo')
 
+    
     mrg_liq = st.session_state.dados_faturamento['margem_liq']
     faturamento = st.session_state.dados_faturamento['faturamento']
 
@@ -68,6 +71,10 @@ def painel_ponto_equilibrio():
     markup = st.session_state.markup
     custos_produtos = faturamento / markup
 
+    mrg_ctb = faturamento - custos - custos_produtos
+    perc_mrg_ctb = mrg_ctb / faturamento
+    
+    st.write('Margem de contribuição: ',str(round(perc_mrg_ctb*100,2)).replace('.',','),'%')
     grafico(mrg_liq, despesas, custos, custos_produtos)
     
 def grafico(mrg_liq, despesas, custos, custos_produtos):

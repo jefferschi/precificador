@@ -57,7 +57,7 @@ def painel_markup():
 
     st.write(round(markup,2))   
 
-    st.success('Prossiga para a próxima última página clicando em - ⚖️Ponto de Equilibrio - na barra lateral')
+    st.success('Prossiga para a próxima página clicando em - ⚖️Ponto de Equilibrio - na barra lateral')
 
 
 #st.sidebar.write(f'registros da sessão :',st.session_state)
