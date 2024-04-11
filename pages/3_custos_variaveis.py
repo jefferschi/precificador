@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 
 
+st.set_page_config(
+    page_title="Custos Variáveis",
+    page_icon='➗',
+)
+
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/2_despesas_fixas.py', label='Despesas Fixas', icon='💸')
 

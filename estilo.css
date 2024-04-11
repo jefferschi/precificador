@@ -1,8 +1,4 @@
-#markup{
-
-    border-color: black;
-}
-
+/* tela markup*/
 .block-container{
     margin-top: 5px;
     border-color: black;
@@ -13,4 +9,16 @@
     text-align: center;    
     border-color: black;
 
+}
+
+/* indicador markup na tela markup*/
+code{
+    font-size: larger;
+}
+
+.ponto-equilibrio{
+    font-size: larger;
+    background-color: aqua;
+    width: 50%;    
+    margin-left: 25%;
 }
