@@ -10,11 +10,14 @@ st.set_page_config(
     #st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
 
 
+
 st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')
 
 def main():
 
-
+    st.cache_data.clear()
+    st.cache_resource.clear()
+    st.session_state.clear()
     st.title('Precificador Varejista')
 
     st.markdown(
