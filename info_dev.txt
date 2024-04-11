@@ -1,18 +1,3 @@
-- verificar por que a biblioteca locale não funciona no servidor streamlit
-    tentar instalar "por fora" ou usar alternativa
-    pesquisar sobre esse problema
-
-=======================================================
-- ponto de equilibrio
-    criar calculo para PE financeiro e PE econômico
-
-=======================================================
-- criar progresso de páginas controlado
-    o usuário não poderá pular etapas.
-    criar botoes na barra lateral de avançar e retornar
-    mudar forma de apresentação das páginas, não usar a multipaginas automática do framework
-=======================================================
-
 - erro:
     ao alterar valoeres em um input de custos variáveis, precisei alterar e salvar 2x para alterar o resultado
     da sessão, além de o valor anterior ter retornado pela 1ªx que tentei.
@@ -20,6 +5,13 @@
     verificar se está ocorrendo nos demais formulários.
 
 ===========================================================
+
+- criar progresso de páginas controlado
+    o usuário não poderá pular etapas.
+    criar botoes na barra lateral de avançar e retornar
+    mudar forma de apresentação das páginas, não usar a multipaginas automática do framework
+=======================================================
+
 - criar gráficos
     A - pizza com os custos, despesas e margem, sendo o total o valor de faturamento
     B - ver outros tipos de gráfico, de barras internamente dentro dos custos e dentro das despesas

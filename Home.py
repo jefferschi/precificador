@@ -20,6 +20,7 @@ def main():
         """
     )
 
-    st.page_link('pages/1_Faturamento.py', label='Faturamento', icon='💲')
+
+    st.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
 
 main()

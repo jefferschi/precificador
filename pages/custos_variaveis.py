@@ -1,9 +1,10 @@
 import streamlit as st
-
 import pandas as pd
-#import locale
 
-#locale.setlocale(locale.LC_ALL, 'pt_BR')
+
+st.sidebar.page_link('Home.py', label='Home', icon='🏠')
+st.sidebar.page_link('pages/despesas_fixas.py', label='Despesas Fixas', icon='💸')
+
 
 @st.cache_data
 def processar_dados(custos_variaveis):
@@ -70,7 +71,7 @@ def formulario_custos_variaveis():
                                  custos_variaveis['%_outros']
                                  )
         
-        st.sidebar.write(f'registros da sessão :',st.session_state)
+        #st.sidebar.write(f'registros da sessão :',st.session_state)
 
         botao_salvar = st.form_submit_button(label='Salvar')
     
@@ -79,6 +80,10 @@ def formulario_custos_variaveis():
         dados = processar_dados(custos_variaveis)
         st.write(dados)     
         st.write('Valor comissão: ',st.session_state.custos_variaveis['comissao'])
+
+        if st.session_state.custos_variaveis['total_custos_variaveis'] > 0.0:
+            st.sidebar.page_link('pages/markup.py', label='Markup', icon='🏷️')
+
 
         
 formulario_custos_variaveis()

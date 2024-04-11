@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
-#import locale
 
-#locale.setlocale(locale.LC_ALL, 'pt_BR')
 
+
+st.sidebar.page_link('Home.py', label='Home', icon='🏠')
+st.sidebar.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
 
 @st.cache_data
 def processar_dados(despesas_fixas):
@@ -29,16 +30,18 @@ def formulario_despesas_fixas():
     st.subheader("Despesas Fixas")
     ### criar o percentual das despesas fixas sobre o faturamento
 
+    # Recuperando os despesas_fixas dos inputs usando st.session_state
+    despesas_fixas = st.session_state.get('despesas_fixas', {
+        'funcionarios': 0.0,
+        'aluguel': 0.0,
+        'luz_agua_internet_telefone': 0.0,
+        'contador': 0.0,
+        'pro_labore': 0.0,
+        'outros': 0.0            
+    })
+
     with st.form(key='formulario_despesas_fixas'):
-        # Recuperando os despesas_fixas dos inputs usando st.session_state
-        despesas_fixas = st.session_state.get('despesas_fixas', {
-            'funcionarios': 0.0,
-            'aluguel': 0.0,
-            'luz_agua_internet_telefone': 0.0,
-            'contador': 0.0,
-            'pro_labore': 0.0,
-            'outros': 0.0            
-        })
+        
 
         #'%_despesas_fixas':0.0,
         #'total_despesas_fixas':0.0
@@ -58,7 +61,7 @@ def formulario_despesas_fixas():
         soma_despesas(despesas_fixas)
 
         # atualizando a barra lateral com despesas_fixas da sessão    
-        st.sidebar.write(f'registros da sessão :',st.session_state)
+        #st.sidebar.write(f'registros da sessão :',st.session_state)
 
         # botão para enviar o formulário
         botao_salvar = st.form_submit_button(label='Salvar')
@@ -66,7 +69,9 @@ def formulario_despesas_fixas():
     if botao_salvar:
         # verificar por que precisa apertar duas vezes salvar para imputar os dados na sessão
         dados = processar_dados(despesas_fixas)
-        st.write(dados)   
-    
+        st.write(dados)
+
+        if st.session_state.despesas_fixas['total_despesas_fixas'] > 0.0:
+            st.sidebar.page_link('pages/custos_variaveis.py', label='Custos Variáveis', icon='➗')
 
 formulario_despesas_fixas()
