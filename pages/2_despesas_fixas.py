@@ -28,7 +28,7 @@ def soma_despesas(despesas_fixas):
     # encontra o percentual das despesas sobre o faturamento
     perc_despesas_fixas = 0.0
     perc_despesas_fixas = total / faturamento
-    st.session_state.despesas_fixas['%_despesas_fixas'] = perc_despesas_fixas
+    st.session_state.despesas_fixas['%_despesas_fixas'] = perc_despesas_fixas * 100.0
     
 
 def formulario_despesas_fixas():    

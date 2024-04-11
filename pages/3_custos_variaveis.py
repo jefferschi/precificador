@@ -32,7 +32,7 @@ def calcula_custos_variaveis(perc_comissao, perc_impostos, perc_cartao_s_fat, pe
     st.session_state.custos_variaveis['total_custos_variaveis'] = total_custos_variaveis
     
     perc_custos_variaveis = total_custos_variaveis / faturamento
-    st.session_state.custos_variaveis['%_custos_variaveis'] = perc_custos_variaveis
+    st.session_state.custos_variaveis['%_custos_variaveis'] = perc_custos_variaveis * 100.0
     
 
 def formulario_custos_variaveis():
