@@ -75,14 +75,14 @@ def formulario_custos_variaveis():
 
         botao_salvar = st.form_submit_button(label='Salvar')
     
-    if botao_salvar:        
-        
-        dados = processar_dados(custos_variaveis)
-        st.write(dados)     
-        st.write('Valor comissão: ',st.session_state.custos_variaveis['comissao'])
+        if botao_salvar:
+            
+            dados = processar_dados(custos_variaveis)
+            st.write(dados)     
+            st.write('Valor comissão: ',st.session_state.custos_variaveis['comissao'])
 
-        if st.session_state.custos_variaveis['total_custos_variaveis'] > 0.0:
-            st.sidebar.page_link('pages/markup.py', label='Markup', icon='🏷️')
+            if st.session_state.custos_variaveis['total_custos_variaveis'] > 0.0:
+                st.sidebar.page_link('pages/markup.py', label='Markup', icon='🏷️')
 
 
         

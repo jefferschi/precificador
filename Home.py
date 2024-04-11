@@ -6,6 +6,8 @@ st.set_page_config(
     
 )
 
+st.sidebar.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
+
 def main():
 
 
@@ -21,6 +23,5 @@ def main():
     )
 
 
-    st.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
 
 main()

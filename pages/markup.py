@@ -4,6 +4,9 @@ import pandas as pd
 import plotly.express as px
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
+st.sidebar.page_link('pages/custos_variaveis.py', label='Custos Variáveis', icon='➗')
+st.sidebar.page_link('pages/ponto_de_equilibrio.py', label='Ponto de Equilíbrio', icon='⚖️')
+
 
 
 with open('estilo.css') as estilo:
@@ -57,7 +60,7 @@ def painel_markup():
     
     grafico(mrg_liq, despesas, custos,custos_produtos)
 
-st.sidebar.write(f'registros da sessão :',st.session_state)
+#st.sidebar.write(f'registros da sessão :',st.session_state)
 
 
 def grafico(mrg_liq, despesas, custos, custos_produtos):
