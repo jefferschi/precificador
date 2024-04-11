@@ -1,10 +1,13 @@
 import streamlit as st
 import pandas as pd
 
-
+st.set_page_config(
+    page_title="Despesas Fixas",
+    page_icon='💸',
+)
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
-st.sidebar.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
+st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')
 
 @st.cache_data
 def processar_dados(despesas_fixas):
@@ -17,18 +20,19 @@ def soma_despesas(despesas_fixas):
     st.session_state.despesas_fixas['total_despesas_fixas'] = 0.0
     st.session_state.despesas_fixas['%_despesas_fixas'] = 0.0
 
+    # soma as despesas
     total = 0.0
     total = sum(despesas_fixas.values())
     st.session_state.despesas_fixas['total_despesas_fixas'] = total
     
+    # encontra o percentual das despesas sobre o faturamento
     perc_despesas_fixas = 0.0
     perc_despesas_fixas = total / faturamento
     st.session_state.despesas_fixas['%_despesas_fixas'] = perc_despesas_fixas
     
 
 def formulario_despesas_fixas():    
-    st.subheader("Despesas Fixas")
-    ### criar o percentual das despesas fixas sobre o faturamento
+    st.subheader("Despesas Fixas")    
 
     # Recuperando os despesas_fixas dos inputs usando st.session_state
     despesas_fixas = st.session_state.get('despesas_fixas', {
@@ -69,9 +73,11 @@ def formulario_despesas_fixas():
     if botao_salvar:
         # verificar por que precisa apertar duas vezes salvar para imputar os dados na sessão
         dados = processar_dados(despesas_fixas)
-        st.write(dados)
+        #st.write(dados)
 
         if st.session_state.despesas_fixas['total_despesas_fixas'] > 0.0:
-            st.sidebar.page_link('pages/custos_variaveis.py', label='Custos Variáveis', icon='➗')
+            st.sidebar.page_link('pages/3_custos_variaveis.py', label='Custos Variáveis', icon='➗')
+            st.success('Prossiga para a próxima página clicando em - ➗Custos Variáveis - na barra lateral')
+
 
 formulario_despesas_fixas()

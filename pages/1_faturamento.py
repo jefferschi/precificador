@@ -2,11 +2,11 @@ import streamlit as st
 import pandas as pd
 
 
-#import locale
-
-# colocar um campo para %margem líq e retornar o cálculo nominal. colocar um st.form
-
-#locale.setlocale(locale.LC_ALL, 'pt_BR')
+st.set_page_config(
+    page_title="Faturamento",
+    page_icon='💲',
+        
+)
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 
@@ -17,10 +17,11 @@ def processar_dados(dados_faturamento):
     return df_dados_faturamento
 
 def calcula_margem(dados_faturamento):
-    margem_liq = dados_faturamento['faturamento'] * dados_faturamento['%_margem']
+    margem_liq = dados_faturamento['faturamento'] * (dados_faturamento['%_margem'] / 100.0)
     st.session_state.dados_faturamento['margem_liq'] = margem_liq
     
     #st.session_state.margem_liq = margem_liq
+
 
 def formulario_faturamento():
 
@@ -37,7 +38,7 @@ def formulario_faturamento():
     with st.form(key='formulario_faturamento'):
         
         # entrada do valor de faturamento
-        dados_faturamento['faturamento'] = st.number_input("Faturamento", step=1000.0, value=dados_faturamento['faturamento'], min_value=0.0, key='faturamento')        
+        dados_faturamento['faturamento'] = st.number_input("Faturamento", step=1000.0, value=dados_faturamento['faturamento'], min_value=0.0, key='faturamento')
         dados_faturamento['%_margem'] = st.number_input("% Margem Líq. desejada", value=dados_faturamento['%_margem'], min_value=0.0, key='%_margem')
         
         
@@ -53,12 +54,13 @@ def formulario_faturamento():
 
     if botao_salvar:
         dados = processar_dados(dados_faturamento)
-        st.write(dados)
-        st.write('Margem Líquida: ',st.session_state.dados_faturamento['margem_liq'])
-    
+        #st.write(dados)
+        #st.write('Margem Líquida: ',st.session_state.dados_faturamento['margem_liq'])
         
         if st.session_state.dados_faturamento['margem_liq'] > 0.0:
-            st.sidebar.page_link('pages/despesas_fixas.py', label='Despesas Fixas', icon='💸')
+            st.sidebar.page_link('pages/2_despesas_fixas.py', label='Despesas Fixas', icon='💸')
+            st.success('Prossiga para a próxima página clicando em - 💸Despesas Fixas - na barra lateral')
+
 
 
     

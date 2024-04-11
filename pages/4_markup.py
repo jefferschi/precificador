@@ -4,8 +4,8 @@ import pandas as pd
 import plotly.express as px
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
-st.sidebar.page_link('pages/custos_variaveis.py', label='Custos Variáveis', icon='➗')
-st.sidebar.page_link('pages/ponto_de_equilibrio.py', label='Ponto de Equilíbrio', icon='⚖️')
+st.sidebar.page_link('pages/3_custos_variaveis.py', label='Custos Variáveis', icon='➗')
+st.sidebar.page_link('pages/5_ponto_de_equilibrio.py', label='Ponto de Equilíbrio', icon='⚖️')
 
 
 
@@ -33,6 +33,12 @@ def painel_markup():
 
     custos_produtos = st.session_state.get('custos_produtos',0.0)
 
+    mrg_ctb = faturamento - custos - custos_produtos
+    perc_mrg_ctb = mrg_ctb / faturamento
+    st.session_state.mrg_ctg = mrg_ctb
+    st.session_state.perc_mrg_ctg = perc_mrg_ctb
+
+
     
     col1, col2, col3, col4 = st.columns([1,1,1,0.5])
     with col1:
@@ -57,8 +63,13 @@ def painel_markup():
         st.write('Markup')
         calcula_markup(perc_mrg_liq, perc_despesas, perc_custos, faturamento)
         st.write(st.session_state.markup)
+        st.write('% Margem de Contribuição \n', st.session_state.perc_mrg_ctg)
+
     
     grafico(mrg_liq, despesas, custos,custos_produtos)
+
+    st.success('Prossiga para a próxima última página clicando em - ⚖️Ponto de Equilibrio - na barra lateral')
+
 
 #st.sidebar.write(f'registros da sessão :',st.session_state)
 

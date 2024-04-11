@@ -4,25 +4,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-import locale
-"""
-# informações na barra lateral de totais    
-    
-media_faturamento = st.session_state.total_faturamento
-media_faturamento_s = locale.format_string("%.2f",media_faturamento,grouping=True)
-st.sidebar.write("Faturamento Mensal: ",media_faturamento_s)
-#st.sidebar.write(f"Faturamento Mensal: {media_faturamento_s}")
-
-total_despesas = st.session_state.total_despesas
-total_despesas_s = locale.format_string("%.2f",total_despesas,grouping=True)
-st.sidebar.write("Total de Despesas Fixas: ",total_despesas_s)
-#st.sidebar.write(f"Total de Despesas Fixas: {total_despesas_s}")
-#exemplo retirado de despesas fixas
-total_custos = st.session_state.total_custos
-total_custos_s = locale.format_string("%.2f",total_custos,grouping=True)
-st.sidebar.write("Total de Custos Variáveis: ",total_custos_s)
-
-"""
 # bootstrap 4 collapse example
 
 components.html(
@@ -62,4 +43,6 @@ components.html(
     </div>
     """,
     height=600,
+    
 )
+

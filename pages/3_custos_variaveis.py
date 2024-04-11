@@ -3,7 +3,7 @@ import pandas as pd
 
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
-st.sidebar.page_link('pages/despesas_fixas.py', label='Despesas Fixas', icon='💸')
+st.sidebar.page_link('pages/2_despesas_fixas.py', label='Despesas Fixas', icon='💸')
 
 
 @st.cache_data
@@ -16,16 +16,16 @@ def calcula_custos_variaveis(perc_comissao, perc_impostos, perc_cartao_s_fat, pe
     faturamento = st.session_state.dados_faturamento.get('faturamento',0.0)
 
     ### lembrar de tratar os arredondamentos para evitar os erros próprios das máquinas de cálculo float 
-    comissao = perc_comissao * faturamento
+    comissao = (perc_comissao / 100.0) * faturamento
     st.session_state.custos_variaveis['comissao'] = comissao
 
-    impostos = perc_impostos * faturamento
+    impostos = (perc_impostos / 100.0) * faturamento
     st.session_state.custos_variaveis['impostos'] = impostos
     
-    taxa_cartao = (perc_cartao_s_fat * faturamento) * perc_taxa_cartao
+    taxa_cartao = ((perc_cartao_s_fat / 100.0) * faturamento) * (perc_taxa_cartao / 100.0)
     st.session_state.custos_variaveis['taxa_cartao'] = taxa_cartao
 
-    outros = perc_outros * faturamento
+    outros = (perc_outros / 100) * faturamento
     st.session_state.custos_variaveis['outros'] = outros
 
     total_custos_variaveis = comissao + impostos + taxa_cartao + outros
@@ -52,6 +52,7 @@ def formulario_custos_variaveis():
             '%_outros': 0.0,
             'outros': 0.0            
         })
+
         #'%_custos_variaveis':0.0,
         #'total_custos_variaveis':0.0
              
@@ -70,20 +71,20 @@ def formulario_custos_variaveis():
                                  custos_variaveis['%_taxa_cartao'],
                                  custos_variaveis['%_outros']
                                  )
-        
-        #st.sidebar.write(f'registros da sessão :',st.session_state)
 
         botao_salvar = st.form_submit_button(label='Salvar')
     
         if botao_salvar:
             
             dados = processar_dados(custos_variaveis)
-            st.write(dados)     
-            st.write('Valor comissão: ',st.session_state.custos_variaveis['comissao'])
+            #st.write(dados)     
+            #st.write('Valor comissão: ',st.session_state.custos_variaveis['comissao'])
 
             if st.session_state.custos_variaveis['total_custos_variaveis'] > 0.0:
-                st.sidebar.page_link('pages/markup.py', label='Markup', icon='🏷️')
+                st.sidebar.page_link('pages/4_markup.py', label='Markup', icon='🏷️')
+                st.success('Prossiga para a próxima página clicando em - 🏷️Markup - na barra lateral')
 
 
+                #st.sidebar.write(f'registros da sessão :',st.session_state)
         
 formulario_custos_variaveis()

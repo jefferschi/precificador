@@ -2,11 +2,15 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Home",
-    page_icon='',
+    page_icon='🏠',
     
 )
 
-st.sidebar.page_link('pages/faturamento.py', label='Faturamento', icon='💲')
+#with open('estilo.css') as estilo:
+    #st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
+
+
+st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')
 
 def main():
 
@@ -21,7 +25,6 @@ def main():
 
         """
     )
-
 
 
 main()
