@@ -59,7 +59,8 @@ def painel_ponto_equilibrio():
     st.write(f'<p class="ponto-equilibrio">{ponto_eq_formatado}</p>',unsafe_allow_html=True)
     
     st.write('-'*1000)
-    st.write('Resumo')
+    texto = "Resumo"
+    st.write(f'<p class="resumo">{texto}</p>', unsafe_allow_html=True)
 
     
     mrg_liq = st.session_state.dados_faturamento['margem_liq']
