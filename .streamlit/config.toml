@@ -1,5 +1,2 @@
 [client]
 showSidebarNavigation = false
-
-[server]
-manage_access = false
