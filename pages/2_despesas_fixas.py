@@ -8,6 +8,7 @@ st.set_page_config(
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')
+st.sidebar.divider()
 
 @st.cache_data
 def processar_dados(despesas_fixas):

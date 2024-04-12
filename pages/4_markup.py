@@ -10,6 +10,7 @@ st.set_page_config(
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/3_custos_variaveis.py', label='Custos Variáveis', icon='➗')
+st.sidebar.divider()
 st.sidebar.page_link('pages/5_ponto_de_equilibrio.py', label='Ponto de Equilíbrio', icon='⚖️')
 
 
@@ -57,7 +58,7 @@ def painel_markup():
 
     st.write(round(markup,2))   
 
-    st.success('Prossiga para a próxima página clicando em - ⚖️Ponto de Equilibrio - na barra lateral')
+    st.success('Prossiga para a última página clicando em - ⚖️Ponto de Equilibrio - na barra lateral')
 
 
 #st.sidebar.write(f'registros da sessão :',st.session_state)

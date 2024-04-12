@@ -9,6 +9,7 @@ st.set_page_config(
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/2_despesas_fixas.py', label='Despesas Fixas', icon='💸')
+st.sidebar.divider()
 
 
 @st.cache_data

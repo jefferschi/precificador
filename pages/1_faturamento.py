@@ -9,6 +9,7 @@ st.set_page_config(
 )
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
+st.sidebar.divider()
 
 
 @st.cache_data
@@ -54,7 +55,7 @@ def formulario_faturamento():
 
     if botao_salvar:
         dados = processar_dados(dados_faturamento)
-        #st.write(dados)
+        #st.dataframe(dados)
         #st.write('Margem Líquida: ',st.session_state.dados_faturamento['margem_liq'])
         
         if st.session_state.dados_faturamento['margem_liq'] > 0.0:

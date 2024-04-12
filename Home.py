@@ -10,7 +10,7 @@ st.set_page_config(
     #st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
 
 
-
+st.sidebar.divider()
 st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')
 
 def main():
@@ -18,16 +18,27 @@ def main():
     st.cache_data.clear()
     st.cache_resource.clear()
     st.session_state.clear()
-    st.title('Precificador Varejista')
 
-    st.markdown(
-        """
-        Ferramenta voltada para o empresário varejista para a precificação de produtos e análise de rentabilidade.
-        
-        Como usar:
+    with st.container(border=True):
+    
+        st.title('Precificador Varejista')
 
-        """
-    )
+        st.markdown(
+            """
+            Ferramenta voltada para o gestor varejista no suporte à precificação de produtos e ponto de equilíbrio.
+            \nClique em > para abrir a barra lateral em depois clique em 💲Faturamento para iniciar, ou saiba mais abaixo:
 
+            """)
+        with st.expander(label='Entenda o passo a passo',expanded=False):
+            st.markdown("""
+                        Objetivos: 
+                        encontrar o markup para precificação dos produtos;
+                        encontrar o ponto de equilíbrio.                        
+                        
+                        O que é markup?
+                        O que é ponto de equilíbrio?
+                        Como é feito o cálculo?
+                        
+                        Passo a passo:""")
 
 main()

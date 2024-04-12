@@ -14,6 +14,7 @@ with open('estilo.css') as estilo:
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/4_markup.py', label='Markup', icon='🏷️')
+st.sidebar.divider()
 
 
 def ponto_equilibrio_fin():
@@ -58,7 +59,7 @@ def painel_ponto_equilibrio():
     ponto_eq_formatado = "R$ {:,.0f}".format(ponto_eq).replace(',','.')
     st.write(f'<p class="ponto-equilibrio">{ponto_eq_formatado}</p>',unsafe_allow_html=True)
     
-    st.write('-'*1000)
+    st.divider()
     texto = "Resumo"
     st.write(f'<p class="resumo">{texto}</p>', unsafe_allow_html=True)
 
