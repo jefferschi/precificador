@@ -2,9 +2,10 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Home",
-    page_icon='🏠',
-    
+    page_icon='🏠',    
 )
+
+st.set_option('server.manage_access', False)
 
 #with open('estilo.css') as estilo:
     #st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
