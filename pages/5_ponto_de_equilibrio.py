@@ -84,7 +84,7 @@ def grafico(mrg_liq, despesas, custos, custos_produtos):
 
     valores = [ mrg_liq, despesas, custos, custos_produtos]
 
-    pizza = px.pie(values=valores, names=rotulos)
+    pizza = px.pie(title='Divisão do Faturamento', values=valores, names=rotulos, width=350)
 
     st.plotly_chart(pizza)
 
