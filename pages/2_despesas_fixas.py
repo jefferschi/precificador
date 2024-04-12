@@ -79,6 +79,7 @@ def formulario_despesas_fixas():
         if st.session_state.despesas_fixas['total_despesas_fixas'] > 0.0:
             st.sidebar.page_link('pages/3_custos_variaveis.py', label='Custos Variáveis', icon='➗')
             st.success('Prossiga para a próxima página clicando em - ➗Custos Variáveis - na barra lateral')
-
-
+    
 formulario_despesas_fixas()
+
+

@@ -29,7 +29,7 @@ def main():
             \nClique em > para abrir a barra lateral em depois clique em 💲Faturamento para iniciar, ou saiba mais abaixo:
 
             """)
-        with st.expander(label='Entenda o passo a passo',expanded=False):
+        with st.expander(label='Entenda os conceitos básicos e aprenda o passo a passo',expanded=False):
             st.markdown("""
                         Objetivos: 
                         encontrar o markup para precificação dos produtos;
