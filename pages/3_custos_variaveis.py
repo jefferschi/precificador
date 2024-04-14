@@ -5,7 +5,12 @@ import pandas as pd
 st.set_page_config(
     page_title="Custos Variáveis",
     page_icon='➗',
+    
 )
+
+# arquivo css
+with open('estilo.css') as estilo:
+    st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/2_despesas_fixas.py', label='Despesas Fixas', icon='💸')
@@ -63,11 +68,11 @@ def formulario_custos_variaveis():
         #'total_custos_variaveis':0.0
              
         # entrada dos percentuais de custos
-        custos_variaveis['%_comissao'] = st.number_input('comissão %', step=0.01, value=custos_variaveis['%_comissao'], min_value=0.0, key='%_comissao')
-        custos_variaveis['%_impostos'] = st.number_input('impostos %', step=0.01, value=custos_variaveis['%_impostos'], min_value=0.0, key='%_impostos')
-        custos_variaveis['%_cartao_sobre_faturamento'] = st.number_input('cartão sobre o faturamento %', step=0.01, value=custos_variaveis['%_cartao_sobre_faturamento'], min_value=0.0, key='%_cartao_sobre_faturamento')
-        custos_variaveis['%_taxa_cartao'] = st.number_input('taxa do cartão %', step=0.01, value=custos_variaveis['%_taxa_cartao'], min_value=0.0, key='%_taxa_cartao')
-        custos_variaveis['%_outros'] = st.number_input('outros %', step=0.01, value=custos_variaveis['%_outros'], min_value=0.0, key='%_outros')
+        custos_variaveis['%_comissao'] = st.number_input('% de Comissão', step=0.01, value=custos_variaveis['%_comissao'], min_value=0.0, key='%_comissao')
+        custos_variaveis['%_impostos'] = st.number_input('% de Impostos', step=0.01, value=custos_variaveis['%_impostos'], min_value=0.0, key='%_impostos')
+        custos_variaveis['%_cartao_sobre_faturamento'] = st.number_input('% de Vendas no Cartão sobre o faturamento', step=0.01, value=custos_variaveis['%_cartao_sobre_faturamento'], min_value=0.0, key='%_cartao_sobre_faturamento')
+        custos_variaveis['%_taxa_cartao'] = st.number_input('% Taxa do cartão', step=0.01, value=custos_variaveis['%_taxa_cartao'], min_value=0.0, key='%_taxa_cartao')
+        custos_variaveis['%_outros'] = st.number_input('% Outros', step=0.01, value=custos_variaveis['%_outros'], min_value=0.0, key='%_outros')
 
         # Salvando o valor do input na sessão usando st.session_state
         st.session_state['custos_variaveis'] = custos_variaveis

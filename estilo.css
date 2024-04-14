@@ -1,30 +1,56 @@
-/* tela markup*/
-.block-container{
-    margin-top: 5px;
-    border-color: black;
-    
+h1, h2{
+    text-align: center;
 }
 
-.element-container{
+h3, h4{
+    text-align: justify;
+}
+
+.stAlert{
+    text-align: center;
+}
+
+
+.element-container {
     text-align: center;    
     border-color: black;
 
 }
 
+.stButton{
+    text-align: left;
+}
+
 /* indicador markup na tela markup*/
-code{
+.markup{
+    color: black;
     font-size: larger;
+    text-align: center;
+    background-color: aquamarine;
+    margin-inline: 40%;
+    width: 20%;
+    
 }
 
 .ponto-equilibrio{
     color: black;
     font-size: larger;
-    background-color: aqua;
-    width: 50%;    
-    margin-left: 25%;
+    text-align: center;
+    background-color: aquamarine;
+    margin-inline: 40%;
+    width: 20%;
 }
 
 .resumo{
     font-weight: bolder;
     font-size: x-large;
+    text-align: center;
 }
+
+/* tela inicial*/
+.expandido{
+    background-color: rgb(238, 244, 244);
+    text-align: justify;
+    padding: 10px;
+}
+

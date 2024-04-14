@@ -4,7 +4,13 @@ import pandas as pd
 st.set_page_config(
     page_title="Despesas Fixas",
     page_icon='💸',
+    
 )
+
+# arquivo css
+with open('estilo.css') as estilo:
+    st.markdown(f'<style>{estilo.read()}</style>', unsafe_allow_html=True)
+
 
 st.sidebar.page_link('Home.py', label='Home', icon='🏠')
 st.sidebar.page_link('pages/1_faturamento.py', label='Faturamento', icon='💲')

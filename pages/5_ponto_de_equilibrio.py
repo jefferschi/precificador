@@ -6,6 +6,7 @@ import plotly.express as px
 st.set_page_config(
     page_title="Ponto de Equilíbrio",
     page_icon='⚖️',
+    layout='wide',
 )
 
 with open('estilo.css') as estilo:
@@ -75,6 +76,7 @@ def painel_ponto_equilibrio():
 
     mrg_ctb = faturamento - custos - custos_produtos
     perc_mrg_ctb = mrg_ctb / faturamento
+    
     
     st.write('Margem de contribuição: ',str(round(perc_mrg_ctb*100,2)).replace('.',','),'%')
     grafico(mrg_liq, despesas, custos, custos_produtos)
