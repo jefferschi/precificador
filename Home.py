@@ -25,6 +25,7 @@ def main():
     with st.container(border=True):
     
         st.write('<h1>Precificador Varejista</h1>', unsafe_allow_html=True)
+        st.divider()
 
         st.markdown(
             """
