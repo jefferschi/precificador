@@ -47,8 +47,21 @@ def calcula_custos_variaveis(perc_comissao, perc_impostos, perc_cartao_s_fat, pe
     
 
 def formulario_custos_variaveis():
+    
+    with st.expander(label='Saiba como preencher os campos',expanded=False):
+        st.markdown("""
+                    <p class="expandido">* % de impostos: confira com o seu contador. Fique atento à alíquota que pode variar de acordo com o faturamento. <br>
+                    * % do cartão sobre o faturamento: de tudo o que vende, quanto é vendido no cartão? Basta dividir a venda em cartão pela venda total.<br>
+                    * Taxa do cartão: qual a taxa média cobrada por cada venda em percentual.<br>
+                    * Outros: outros custos gerados quando há venda. Exemplo: sacolas para o cliente levar as compras.
+                    </p>
+                    """, unsafe_allow_html=True
+                    ) 
+       
+    
     st.subheader("Custos Variáveis")
 
+        
     with st.form(key='formulario_custos_variaveis'):
     
         # Recuperando os valores dos inputs usando st.session_state

@@ -31,6 +31,14 @@ def calcula_margem(dados_faturamento):
 
 def formulario_faturamento():
 
+    with st.expander(label='Saiba como preencher os campos',expanded=False):
+        st.markdown("""
+                    <p class="expandido">* Faturamento: a média mensal das vendas. (retire os meses excepcionais, quando houver) <br>
+                    * % Margem Líq. desejada: a expectativa de lucro sobre o faturamento em percentual.
+                    </p>
+                    """, unsafe_allow_html=True
+                    )
+
     st.subheader("Faturamento Mensal")
 
     # Recuperando o valor do input usando st.session_state e inicializando caso não exista    

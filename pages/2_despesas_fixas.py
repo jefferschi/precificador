@@ -38,7 +38,15 @@ def soma_despesas(despesas_fixas):
     st.session_state.despesas_fixas['%_despesas_fixas'] = perc_despesas_fixas * 100.0
     
 
-def formulario_despesas_fixas():    
+def formulario_despesas_fixas():
+
+    with st.expander(label='Saiba como preencher os campos',expanded=False):
+        st.markdown("""
+                    <p class="expandido">* Funcionários: a média mensal do salário. (calcule 13º, férias, auxílios, FGTS...) <br>
+                    * Outros: tudo o que é gasto fixo mensal e não foi descrito em um dos campos. Ex.: material de limpeza, material de escritório...
+                    </p>
+                    """, unsafe_allow_html=True
+                    )    
     st.subheader("Despesas Fixas")    
 
     # Recuperando os despesas_fixas dos inputs usando st.session_state
